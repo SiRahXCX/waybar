@@ -4,8 +4,9 @@
   border: 0;
   border-radius: 0;
   min-height: 0;
-  font-family: 'JetBrainsMonoNL Nerd Font';
+  font-family: 'Cartograph CF';
   font-size: 14px;
+  font-weight: bold;
   min-height: 0px;
 }
 
@@ -199,11 +200,6 @@ tooltip {
   border: 2px solid alpha(@foreground, .5);
 }
 
-#network, #bluetooth, #cpu {
-  font-size: 15px;
+#cpu {
+  font-size: 16px;
 }
-
-#pulseaudio {
-  font-size: 13px;
-}
-
