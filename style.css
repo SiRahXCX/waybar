@@ -118,6 +118,10 @@ color: @background;
   border-radius: 4px;
 }
 
+#tray {
+  font-style: italic;
+}
+
 #memory:hover,
 #clock:hover,
 #backlight:hover,
@@ -198,6 +202,13 @@ tooltip {
   border-radius: 5px;
   background: @background;
   border: 2px solid alpha(@foreground, .5);
+}
+
+/*
+ *  Custom styles
+ */
+#window {
+  font-style: italic;
 }
 
 #cpu {
