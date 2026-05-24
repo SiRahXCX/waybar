@@ -1,210 +1,321 @@
 @import "../omarchy/current/theme/waybar.css";
 
+/* --- Global-Settings ---*/
+
 * {
-  border: 0;
-  border-radius: 0;
-  min-height: 0;
   font-family: 'Cartograph CF';
   font-size: 14px;
   font-weight: bold;
   min-height: 0px;
-}
+  }
 
-.modules-left {
-  margin-left: 5px;
-}
-
-.modules-right {
-  margin-right: 5px;
-}
-
-#waybar {
-  background: transparent;
-  opacity: 0.8;
+  /* --- Waybar ---*/
+  window#waybar {
+  background-color: transparent;
+  transition-property: background-color;
+  transition-duration: .5s;
 }
 
 window#waybar.empty #window {
   background: transparent;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
   color: transparent;
   padding: 0;
   margin: 0;
-  transition: .5s;
-  border: none;
+}
+#waybar.empty .modules-center {
+  opacity: 0;
 }
 
-mpris.empty {
-  background: transparent;
-  border: none;
-  padding: 0;
-  margin: 0;
+/* --- Tooltip ---*/
+tooltip {
+  opacity: 1;
+
+ }
+
+ /* --- Sub-Groups ---*/
+
+#left1{
+  border-radius: 26px;
+  border: 1px solid alpha(@foreground, 0.3);
+  margin: 0px 8px 3px 8px;
+  background-color: @background;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 1);
 }
 
+#left2{
+  border-radius: 26px;
+  border: 1px solid alpha(@foreground, 0.3);
+  margin: 0px 8px 3px 8px;
+  background-color: @background;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 1);
+}
+
+#left3{
+
+}
+
+ /* --- Modules ---*/
+
+.modules-center {
+  border-radius: 26px;
+  border: 1px solid alpha(@foreground, 0.3);
+  margin: 0px 8px 3px 8px;
+  background-color: @background;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 1);
+  font-style: italic;
+ }
+
+.modules-right {
+  border-radius: 26px;
+  border: 1px solid alpha(@foreground, 0.3);
+  margin: 0px 8px 3px 8px;
+  background-color: @background;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 1);
+}
+
+
+/* --- Workspaces --- */
 #workspaces {
-    background: @background;
-    border: .5px solid alpha(@foreground, .4);
-    padding: 0px;
-    margin: 5px 2px;
-    border-radius: 4px;
+  border-radius: 24px;
+  background-color: alpha(@background, 1);
+  opacity: 0.95;
+  margin: 0px;
+  padding: 1px 1px 1px;
 }
-
 
 #workspaces button {
-    all: initial;
-    padding: 0px 12px;
-    margin: 0px 0px;
-    color: @foreground;
-    border: .1px solid alpha(@foreground, .4);
-    background: transparent;
-    opacity: 1;
+  padding: 0px 10px;
+  margin: 2px 2px;
+  border-radius: 24px;
+  background-color: alpha(@foreground, 0.5);
+  color: @background; 
+  transition: all 0.2s ease-in-out;
+  opacity: 0.95;
 }
 
 #workspaces button.active {
-    padding: 0px 12px;
-    margin: 0px 0px;
-    background: @foreground;
-    color: @background;
-    opacity: 1; 
+  color: @background;
+  min-width: 40px;
+  background-color: alpha(@foreground, 0.9);
+  opacity: 1.0;
+  transition: all 0.2s ease-in-out;
 }
 
 #workspaces button.empty {
-  background: @background;  
-   color: alpha(@foreground, .3);
+  background-color: alpha(@foreground, 0.4);
+  color: @foreground;
+  opacity: 0.45;
+  border-radius: 24px;
+  transition: all 0.2s ease-in-out;
 }
 
 #workspaces button.empty.active {
-opacity: 0.75; 
-background: @foreground;
-color: @background;
-}
-#workspaces button:first-child {
-    border-radius: 4px 0px 0px 4px;
+  background-color: alpha(@foreground, 0.9);
+  color: @background;
+  opacity: 1;
+  transition: all 0.2s ease-in-out;
 }
 
-#workspaces button:last-child {
-    border-radius: 0px 4px 4px 0px;
-}
-
-#workspaces button:first-child:last-child {
-    border-radius: 4px;
-}
-
-#workspaces button.active:hover,
+#workspaces button.empty:hover,
 #workspaces button:hover {
-    background: @foreground;
-    color: @background;
-    opacity: 1; 
-    transition: .7s;
+  background: @foreground;
+  color: @background;
+   opacity: 0.65;
 }
+
+/* --- General Modules --- */
 
 #tray,
-#custom-weather,
-#memory,
-#backlight,
-#clock,
+#window,
+#group-tray-expander,
+#mpris,
 #cpu,
+#clock,
 #battery,
 #network,
+#memory,
+#backlight,
 #bluetooth,
 #pulseaudio,
-#custom-screenrecording-indicator,
+#custom-omarchy,
+#custom-weather,
+#custom-update,
 #custom-idle-indicator,
 #custom-notification-silencing-indicator,
-#custom-update{
-  background-color: @background;
+#idle_inhibitor,
+#custom-screenrecording-indicator,
+#custom-updatespacman {
+  min-width: 14px;
+  margin: 1px 3px 1px 3px;
+  padding: 0 3px;
+}
+
+/* Specific Module */
+
+#group-tray-expander {
+  border-radius: 24px;
+  background-color: transparent;
   color: @foreground;
-  border: .5px solid alpha(@foreground, .4);
-  padding: 5px 12px;
-  margin: 5px 2px;
-  border-radius: 4px;
+}
+
+#bluetooth {
+  padding-right: 0px;
+}
+
+#custom-weather {
+  padding-right: 0px;
+}
+
+#custom-update {
+  padding-left: 0px;
+  padding-right: 4px;
 }
 
 #tray {
-  font-style: italic;
+    background-color: transparent;
+    border-radius: 24px;
+    margin: 0 10px;
 }
 
-#memory:hover,
-#clock:hover,
-#backlight:hover,
-#cpu:hover,
-#network:hover,
-#bluetooth:hover,
-#pulseaudio:hover,
-#custom-screenrecording-indicator:hover,
-#custom-idle-indicator:hover,
-#custom-notification-silencing-indicator:hover,
-#custom-update:hover {
-  background-color: alpha(@foreground, .9);
-  color: @background;
-  transition: .7s;
+#tray > .passive {
+    -gtk-icon-effect: dim;
 }
 
-#custom-update,
-#custom-screenrecording-indicator,
-#custom-idle-indicator,
-#custom-notification-silencing-indicator {
-  font-size: 14px;
-  border-radius: 4px;
-  padding: 0 11px 0 10px;
-  margin-left: 2px;
-  margin-right: 0px;
-}
-
-#clock {
-  border-radius: 4px;
-  padding: 0 15px;
-  margin: 5px 0px;
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: @transparent;
 }
 
 .hidden {
   opacity: 0;
 }
 
-#custom-screenrecording-indicator.active,
+tooltip {
+ padding: 4px;
+ background: @background;
+ border: 1px solid alpha(@foreground, 0.8);
+ border-radius: 8px;
+ box-shadow: 1px 1px 3px 1px #131313;
+ font-size: 12px;
+ 
+}
+tooltip label {
+    color: @foreground;
+    font-weight: normal;
+}
+
+#custom-voxtype {
+  min-width: 12px;
+  margin: 0 0 0 2.5px;
+}
+
+#custom-voxtype.recording {
+  color: #a55555;
+}
+
+#custom-idle-indicator,
+#custom-notification-silencing-indicator {
+  min-width: 12px;
+  margin-left: 0;
+  margin-right: 0;
+  font-size: 12px;
+  padding-bottom: 0px;
+}
+
 #custom-idle-indicator.active,
 #custom-notification-silencing-indicator.active {
   color: #a55555;
 }
 
-#custom-omarchy,
-#battery {
-  background-color: @foreground;
-  color: @background;
-  border: 1px solid @background;
-  min-width: 10px;
-  border-radius: 4px;
-  padding: 0 8px;
-  margin: 5px 2px;
-}
-
-#battery {
-  margin-left: 2px;
-}
-
-#mpris,
-#window {
+/* Specific animation Module */
+#mpris {
+  border-radius: 26px;
+  border: 2px solid alpha(@foreground, 0.3);
+  margin: 0px 8px 3px 8px;
   background-color: @background;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 1);
+  transition-property: background-color;
+  transition-duration: .5s;
+  animation: repeat;
+	animation-name: blink;
+	animation-duration: 3s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#custom-screenrecording-indicator {
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  color: transparent;
+}
+
+#custom-screenrecording-indicator.active {
+  color: #eb7087;
+  animation-name: blink-recording;
+  animation-duration: 0.5s;
+}
+
+@keyframes blink-recording {
+    to {
+        color: @background;
+    }
+}
+
+
+
+@keyframes blink {
+    to {
+        color: #4a4a4a;
+        
+    }
+}
+
+@keyframes blink-inhibitor {
+    to {
+        color: @background;
+    }
+}
+
+#idle_inhibitor {
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
   color: @foreground;
-  border: .5px solid alpha(@foreground, .4);
-  padding: 5px 12px;
-  margin: 5px 2px;
-  border-radius: 4px;
-  font-style: italic;
+ }
+
+#idle_inhibitor.activated {
+  color: #178b76;
+  animation-name: blink-inhibitor;
+  animation-duration: 1s;
 }
 
-#network {
-  padding: 0 15px 0 10px;
+#battery.warning {
+  color: #c95d0f;
+	 background-color: transparent;
 }
 
-#pulseaudio {
-  padding: 0 15px 0 10px;
+@keyframes blink2 {
+  to {
+    background-color: transparent;
+    color: #f53c3c;
+  }
 }
 
-tooltip {
-  border-radius: 5px;
-  background: @background;
-  border: 2px solid alpha(@foreground, .5);
+#battery.critical:not(.charging) {
+  background-color: transparent;
+  color: #e6d8ba;
+  animation-name: blink2;
+  animation-duration: 0.5s;
+  animation-timing-function: steps(12);
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
-#cpu {
-  font-size: 16px;
+#bluetooth {
+  font-size: 15px;
 }
